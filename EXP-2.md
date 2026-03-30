@@ -11,10 +11,10 @@ The Discrete Fourier Transform (DFT) converts a signal from the time domain into
 MATLAB computes DFT efficiently using the Fast Fourier Transform (FFT) algorithm.
 
 Mathematical Expression:
-X(k)=∑_(n=0)^(N-1)▒〖x(n)" " 〗 e^(-j2πkn/N)
+X(k)=(n=0)∑^(N-1)x(n)e^(-j2πkn/N)
 
 Where:
-	x(n)→ input signal.
+  x(n)→ input signal.
   X(k)→ frequency spectrum.
   N→ number of samples.
 
@@ -28,8 +28,39 @@ Where:
 	7)Stop the program
 
 # MATLAB CODE :
+```
+% Computation of DFT of a Discrete-Time Signal
 
+clc;
+clear;
+close all;
+
+% Input discrete-time signal
+x = [1 1 1 1];
+
+% Length of the signal
+N = length(x);
+
+% Compute DFT using FFT
+X = fft(x);
+
+% Display DFT values
+disp('DFT of the given signal is:');
+disp(X);
+
+% Frequency index
+k = 0:N-1;
+
+% Plot magnitude spectrum
+figure;
+stem(k, abs(X), 'filled');
+xlabel('Frequency index k');
+ylabel('|X(k)|');
+title('Magnitude Spectrum of DFT');
+grid on;
+```
 # OUTPUT GRAPH :
+<img width="1230" height="822" alt="image" src="https://github.com/user-attachments/assets/d3caaa5e-1dfd-44a4-b2b4-75ca0d63a99e" />
 
 # Result :
 Thus, the Discrete Fourier Transform of the given discrete-time signal was successfully computed and plotted using MATLAB.
